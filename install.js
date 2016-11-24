@@ -23,7 +23,7 @@ var git = path.resolve(root, gitDir, '.git')
   , precommit = path.resolve(hooks, 'pre-commit');
 
 var hookText = fs.readFileSync('hook.simple', 'utf8');
-fs.writeFileSync('hook', hookText.replace('{{}}', '{{' + __dirname + '}}'), 'utf8');
+fs.writeFileSync('hook', hookText.replace('{{}}', __dirname), 'utf8');
 
 return;
 //
