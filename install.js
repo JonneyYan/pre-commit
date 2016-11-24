@@ -8,6 +8,7 @@ var fs = require('fs')
   , spawn = require('cross-spawn')
   , hook = path.join(__dirname, 'hook')
   , root = path.resolve(__dirname, '..', '..')
+  , packageJson = require(path.resolve(root, 'package.json')) // eslint-disable-line
   , exists = fs.existsSync || path.existsSync;
 
 //
@@ -16,10 +17,13 @@ var fs = require('fs')
 // `pre-commit` file. The path needs to be absolute in order for the symlinking
 // to work correctly.
 //
-var git = path.resolve(root, '.git')
+var gitDir = packageJson.gitDir || ''
+var git = path.resolve(root, gitDir, '.git')
   , hooks = path.resolve(git, 'hooks')
   , precommit = path.resolve(hooks, 'pre-commit');
 
+console.log(git);
+return;
 //
 // Bail out if we don't have an `.git` directory as the hooks will not get
 // triggered. If we do have directory create a hooks folder if it doesn't exist.
