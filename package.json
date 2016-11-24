@@ -12,6 +12,7 @@
     "test-travis": "istanbul cover node_modules/.bin/_mocha --report lcovonly -- test.js",
     "uninstall": "node uninstall.js"
   },
+  "gitDir": ".123",
   "repository": {
     "type": "git",
     "url": "git://github.com/observing/pre-commit.git"
