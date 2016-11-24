@@ -21,9 +21,6 @@ var gitDir = packageJson.gitDir || ''
 var git = path.resolve(root, gitDir, '.git')
   , hooks = path.resolve(git, 'hooks')
   , precommit = path.resolve(hooks, 'pre-commit');
-
-console.log(git);
-return;
 //
 // Bail out if we don't have an `.git` directory as the hooks will not get
 // triggered. If we do have directory create a hooks folder if it doesn't exist.
